@@ -39,6 +39,7 @@ setup(
     extras_require={
         'test': [
             'pytest',
+            'pytest-cov',
             'pylint',
             'flake8'
         ]
