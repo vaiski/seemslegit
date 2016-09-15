@@ -6,7 +6,10 @@ from .errors import ValidationError
 
 def validator(func):
     @wraps(func)
-    def wrapper(*args, fail=False, **kwargs):
+    def wrapper(*args, **kwargs):
+        fail = kwargs.get('fail', False)
+        if 'fail' in kwargs:
+            del kwargs['fail']
         valid = func(*args, **kwargs)
         if not valid:
             error = ValidationError(func, args)

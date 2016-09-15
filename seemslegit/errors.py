@@ -7,6 +7,12 @@ class ValidationError(Exception):
         self.validator = validator
         self.value = value
 
+    def __len__(self):
+        return 0
+
+    def __nonzero__(self):
+        return False
+
     def __bool__(self):
         return False
 

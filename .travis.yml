@@ -9,6 +9,6 @@ python:
 install:
   - pip install -e ".[test]"
   - flake8 seemslegit
-  - py.test --cov=seemslegit --cov-fail-under=50
+script: py.test --cov=seemslegit --cov-fail-under=50
 after_success:
   - coveralls
