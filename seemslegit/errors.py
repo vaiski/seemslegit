@@ -3,9 +3,15 @@
 
 class ValidationError(Exception):
 
-    def __init__(self, validator, error):
+    def __init__(self, validator, value):
         self.validator = validator
-        self.error = error
+        self.value = value
 
     def __bool__(self):
         return False
+
+    def __str__(self):
+        return "Value {} didn't satisfy validator {}".format(
+            self.value,
+            self.validator.__name__
+        )
